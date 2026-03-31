@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🚖 Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>🚖 E-commerce Dashboard</h1>
+
+<p>Total Orders: <span id="orders">...</span></p>
+<p>Total Revenue: <span id="revenue">...</span></p>
+<p>Avg Order Value: <span id="avg">...</span></p>
+
+<h2>Status Chart</h2>
+<canvas id="statusChart"></canvas>
+
+<script>
+async function loadDashboard() {
+    // Metrics
+    const metricsRes = await fetch("/metrics");
+    const metrics = await metricsRes.json();
+
+    document.getElementById("orders").innerText = metrics.total_orders;
+    document.getElementById("revenue").innerText = metrics.total_revenue;
+    document.getElementById("avg").innerText = metrics.avg_order_value;
+
+    // Status
+    const statusRes = await fetch("/status");
+    const status = await statusRes.json();
+
+    const labels = status.map(s => s.status);
+    const values = status.map(s => s.count);
+
+    new Chart(document.getElementById("statusChart"), {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Orders by Status",
+                data: values
+            }]
+        }
+    });
+}
+
+loadDashboard();
+</script>
+
+</body>
+</html>

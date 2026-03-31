@@ -1,0 +1,14 @@
+
+.claude/.chats/
+.claude/.chats/**
+.claude/settings.local.json
+
+.venv/
+__pycache__/
+*.pyc
+.env
+spark-warehouse/
+warehouse/
+*.log
+
+
