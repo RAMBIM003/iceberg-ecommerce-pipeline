@@ -72,7 +72,7 @@ Status breakdown
 Iceberg Concepts Demonstrated
 
 
-**🔒 ACID Transactions**
+** ACID Transactions**
 
 **Iceberg guarantees:**
 
@@ -92,7 +92,7 @@ Audit history
 **Example:**
 
 orders.snapshots
-🧠 Metadata Layer
+ Metadata Layer
 
 **Located in:**
 
@@ -103,7 +103,7 @@ warehouse/default/orders/metadata/
 Table schema
 Snapshot history
 File tracking
-📦 Data Layer
+ Data Layer
 
 **Located in:**
 
@@ -113,7 +113,7 @@ warehouse/default/orders/data/
 
 Partitioned Parquet files
 Organized by order_date
-🏗️ Warehouse
+ Warehouse
 
 **Acts as:**
 
@@ -131,7 +131,7 @@ GET /
 
 **Response:**
 
-Iceberg API is running 🚀
+Iceberg API is running 
 2. Metrics Endpoint
 GET /metrics
 
